@@ -12,5 +12,9 @@ export default function NumberOfCharacters({ characters = [] }) {
     }
 
     // If there are characters in the array
-    return <p>There is {characters.length} characters</p>; 
+    return (
+      <p>
+        {`There ${characters.length === 1 ? 'is' : 'are'} ${characters.length} character${characters.length === 1 ? '' : 's'}`}
+      </p>
+    );
 }
