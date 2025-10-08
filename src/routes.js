@@ -4,7 +4,6 @@ import ContactPage from './pages/ContactPage';
 import Layout from './Layout';
 import NotFoundPage from './pages/NotFoundPage';
 import { getCharacterById, getCharacters } from './api/characters-api';
-import { Component } from 'react';
 import CharacterDetailPage from './pages/CharacterDetailPage';
 
 // routes of the application
