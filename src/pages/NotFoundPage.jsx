@@ -1,6 +1,6 @@
 const NotFoundPage = () => {
     // change the title of the page
-    document.title = "404 - Page Not Found";
+    document.title = "404 Not Found | Marvel App";
 
     return (
         <div>
