@@ -5,7 +5,7 @@ import CharacterDetail from '../components/CharacterDetail';
 
 const CharacterDetailPage = () => {
     // retrieve the character using the useLoaderData hook
-    const character = useLoaderData();
+    const { character } = useLoaderData();
 
     //useEffect(() => {
     document.title = `${character.name} | Marvel App`;
@@ -13,6 +13,7 @@ const CharacterDetailPage = () => {
 
     return (
         <>
+            <h1>{character.name}</h1>
             <CharacterDetail character={character} />
         </>
     );
