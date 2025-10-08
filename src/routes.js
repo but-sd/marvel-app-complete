@@ -23,7 +23,7 @@ const routes = [
           const orderBy = searchParams.get("orderBy") || DEFAULT_ORDERBY
           const order = searchParams.get("order") || DEFAULT_ORDER
 
-          return { characters: await getCharacters(orderBy, order) };
+          return { characters: getCharacters(orderBy, order) };
         },
         Component: CharactersPage
       },
