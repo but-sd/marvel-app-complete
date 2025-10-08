@@ -3,7 +3,7 @@ import CharactersPage from './pages/CharactersPage';
 import ContactPage from './pages/ContactPage';
 import Layout from './Layout';
 import NotFoundPage from './pages/NotFoundPage';
-import { getCharacterById, getCharacters } from './api/characters-api';
+import { DEFAULT_ORDER, DEFAULT_ORDERBY, getCharacterById, getCharacters } from './api/characters-api';
 import CharacterDetailPage from './pages/CharacterDetailPage';
 
 // routes of the application
@@ -15,9 +15,15 @@ const routes = [
       {
         // main page
         index: true,
-        loader: async () => {
-          // return data from here
-          return { characters: await getCharacters() };
+        loader: async ({ request }) => {
+          // Get the sort and order query parameters from the URL
+          const url = new URL(request.url);
+          const searchParams = url.searchParams;
+
+          const orderBy = searchParams.get("orderBy") || DEFAULT_ORDERBY
+          const order = searchParams.get("order") || DEFAULT_ORDER
+
+          return { characters: await getCharacters(orderBy, order) };
         },
         Component: CharactersPage
       },
